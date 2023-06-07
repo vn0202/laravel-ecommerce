@@ -93,5 +93,10 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+        $user->delete();
+
+        return redirect()
+            ->route('admin.home.index')
+            ->with('success', 'User deleted successfully.');
     }
 }

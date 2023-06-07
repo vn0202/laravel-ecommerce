@@ -78,7 +78,7 @@
                             </div>
 
                             <div class="float-right">
-                                {{ $users->links('vendor.pagination.bootstrap-5') }}
+                                {{ $users->links() }}
                             </div>
                         </div>
                     </div>

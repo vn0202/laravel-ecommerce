@@ -22,6 +22,8 @@ Route::prefix('admin')
     ->group(static function () {
         Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home.index');
         Route::resource('users', \App\Http\Controllers\Admin\UserController::class);
+        Route::resource('roles', \App\Http\Controllers\Admin\RoleController::class);
+
 
     });
 
