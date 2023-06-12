@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Role;
 use App\Models\User;
+use Illuminate\Support\Str;
+use Spatie\Permission\Models\Permission;
 
 class UserController extends Controller
 {
@@ -20,6 +23,9 @@ class UserController extends Controller
     }
     public function index()
     {
+//        $permissions= Permission::all();
+//        dd(Str::afterLast('nghia','i'));
+//       dd($permissions->groupBy(fn($permission) => Str::plural(Str::afterLast($permission->name, ' '))));
         $users = User::paginate(10);
 
         return view('admin.users.index', [
@@ -67,8 +73,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $permissions = Permission::all();
+        $roles = Role::all();
+
         return view('admin.users.edit', [
             'user' => $user,
+            'permissions' => $permissions,
+            'roles' => $roles,
         ]);
     }
 
