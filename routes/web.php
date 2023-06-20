@@ -35,6 +35,7 @@ Route::prefix('admin')
             \App\Http\Controllers\Admin\RolePermissionController::class,
         )->name('roles.permissions.assign');
         Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+        Route::resource('brands', \App\Http\Controllers\Admin\BrandController::class);
 
 
     });
