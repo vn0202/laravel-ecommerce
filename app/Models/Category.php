@@ -56,4 +56,7 @@ class Category extends Model
                 ->pluck('id'),
         );
     }
+    public function products():HasMany{
+        return $this->hasMany(Product::class);
+    }
 }

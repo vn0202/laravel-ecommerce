@@ -5,6 +5,12 @@
 import { application } from '../libs/stimulus'
 
 
+import CkeditorController from './ckeditor_controller'
+application.register('ckeditor', CkeditorController)
+
+import FilepondController from './filepond_controller'
+application.register('filepond', FilepondController)
+
 import FilterController from './filter_controller'
 application.register('filter', FilterController)
 

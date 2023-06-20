@@ -36,6 +36,16 @@ Route::prefix('admin')
         )->name('roles.permissions.assign');
         Route::resource('categories', \App\Http\Controllers\CategoryController::class);
         Route::resource('brands', \App\Http\Controllers\Admin\BrandController::class);
+        Route::resource('products', \App\Http\Controllers\ProductController::class);
+        Route::post('/images/{path?}', [\App\Http\Controllers\Admin\ImageController::class, 'store'])->name(
+            'images.store',
+        );
+        Route::get('/images', [\App\Http\Controllers\Admin\ImageController::class, 'show'])->name(
+            'images.show',
+        );
+        Route::delete('/images', [\App\Http\Controllers\Admin\ImageController::class, 'destroy'])->name(
+            'images.destroy',
+        );
 
 
     });
